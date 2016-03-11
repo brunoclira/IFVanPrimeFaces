@@ -9,6 +9,11 @@
 	overflow: visible !important;
 }
 
+.ui-widget, .ui-widget .ui-widget {
+	font-size: 14px !important;
+}
+
+
 body {
 	background-color: #FFFFFF;
 }
