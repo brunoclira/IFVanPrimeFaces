@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/modeloSistema.xhtml">
+	
+	<ui:define name="menu">
+		<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
+	</ui:define>
+	
+	<ui:define name="conteudo">
+		
+		<h:form>
+		    <p:panel id="panel" header="New User">
+		 
+		        <p:messages id="msgs" />
+		 
+		        <h:panelGrid columns="3" cellpadding="5">
+		            <p:outputLabel for="firstname" value="Firstname:" />
+		            <p:inputText id="firstname" value="#{CadastrarPassageiroBEAN.firstname}" required="true" label="Firstname">
+		                <f:validateLength minimum="2" />
+		            </p:inputText>
+		            <p:message for="firstname" display="icon" />
+		 
+		            <p:outputLabel for="lastname" value="Lastname:" />
+		            <p:inputText id="lastname" value="#{CadastrarPassageiroBEAN.lastname}" label="Lastname" required="true">
+		                <f:validateLength minimum="2" />
+		                <p:ajax update="msgLastname" event="keyup" />
+		            </p:inputText>
+		            <p:message for="lastname" id="msgLastname" display="icon" />
+		 
+		        </h:panelGrid>
+		 
+		        <p:commandButton value="Save" update="panel" actionListener="#{CadastrarPassageiroBEAN.save}" icon="ui-icon-check" />
+		    </p:panel>
+		</h:form>
+		
+	</ui:define>
+	
+	<ui:define name="rodape">
+	</ui:define>
+
+</ui:composition>
