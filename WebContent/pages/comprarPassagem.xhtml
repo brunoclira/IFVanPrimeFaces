@@ -21,6 +21,18 @@
 					<p:outputLabel for="cpf" value="CPF:" />
 		        			<p:inputMask id="cpf" value="#{CadastrarPassageiroBEAN.passageiro.cpf}" mask="999.999.999-99"/><br/>
 				
+					<p:outputLabel for="poltrona" value="Escolha sua poltrona: " />
+			            <p:selectOneMenu id="poltrona" value="#{ComprarPassagemBEAN.van.poltrona}" style="width:150px">
+			                <f:selectItem itemLabel="--" itemValue="" noSelectionOption="true" />
+			                <f:selectItems value="#{CadastrarPassageiroBEAN.poltronas}" />
+			            </p:selectOneMenu><br/>
+			            
+			        <p:outputLabel for="tipo_passagem" value="Tipo da passagem: " />
+			            <p:selectOneMenu id="tipo_passagem" value="#{ComprarPassagemBEAN.van.tipo_passagem}" style="width:150px">
+			                <f:selectItem itemLabel="--" itemValue="" noSelectionOption="true" />
+			                <f:selectItems value="#{CadastrarPassageiroBEAN.tipo_passagens}" />
+			            </p:selectOneMenu><br/>
+			            
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
