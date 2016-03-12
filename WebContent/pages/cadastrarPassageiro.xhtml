@@ -20,6 +20,7 @@
 		        <p:messages id="msgs" />
 		 
 		        <h:panelGrid columns="3" cellpadding="5">
+		            
 		            <p:outputLabel for="firstname" value="Nome:" />
 		            <p:inputText id="firstname" value="#{CadastrarPassageiroBEAN.firstname}" required="true" label="Nome">
 		                <f:validateLength minimum="2" />
@@ -44,6 +45,20 @@
 			                <f:selectItems value="#{CadastrarPassageiroBEAN.sexos}" />
 			            </p:selectOneMenu>
 			            
+			        <p:outputLabel for="telefone" value="Telefone:" />
+        			<p:inputMask id="telefone" value="#{CadastrarPassageiroBEAN.telefone}" mask="(99)99999-9999"/>    
+			            
+			        <p:outputLabel for="estado" value="Estado: " />
+			            <p:selectOneMenu id="estado" value="#{CadastrarPassageiroBEAN.estado}" style="width:150px">
+			                <p:ajax listener="#{CadastrarPassageiroBEAN.onSexoChange}"/>
+			                <f:selectItem itemLabel="Selecione o estado" itemValue="" noSelectionOption="true" />
+			                <f:selectItems value="#{CadastrarPassageiroBEAN.estados}" />
+			            </p:selectOneMenu>
+		 
+		            <p:outputLabel for="cidade" value="Cidade:" />
+		            <p:inputText id="cidade" value="#{CadastrarPassageiroBEAN.cidade}" required="true" label="Cidade">
+		                <f:validateLength minimum="2" />
+		            </p:inputText>
 			        
 		        </h:panelGrid>
 		 

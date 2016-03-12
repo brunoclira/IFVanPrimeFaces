@@ -9,6 +9,7 @@ public class Passageiro {
 	private String telefone;
 	private String cidade;
 	private String estado;
+	
 	public String getNome() {
 		return nome;
 	}
