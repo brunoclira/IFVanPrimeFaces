@@ -12,7 +12,13 @@
 	</ui:define>
 
 	<ui:define name="conteudo">
-	
+		
+		<p:dataTable var="item" value="#{cancelarCompraBean.lugares}">
+			<p:column headerText="Lugar">
+				<h:outputText value="#{item.cadeira}" />
+			</p:column>
+			
+		</p:dataTable>
 	
 	</ui:define>
 

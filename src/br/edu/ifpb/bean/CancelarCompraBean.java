@@ -3,45 +3,21 @@ package br.edu.ifpb.bean;
 
 import javax.faces.bean.ManagedBean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.edu.ifpb.DAO.CadeiraVanDAO;
 import br.edu.ifpb.domain.Passageiro;
+import br.edu.ifpb.domain.Van;
 
 @ManagedBean(name = "CancelarCompraBean")
 public class CancelarCompraBean {
+		private List<Van> lugares;
 
-	private CadeiraVanDAO cadeira = new CadeiraVanDAO();
-	private Passageiro pessoa = new Passageiro();
 
-	public CadeiraVanDAO getCadeira() {
-		return cadeira;
-	}
 
-	public void setCadeira(CadeiraVanDAO cadeira) {
-		this.cadeira = cadeira;
-	}
 
-	public Passageiro getPessoa() {
-		return pessoa;
-	}
-
-	public void setPessoa(Passageiro pessoa) {
-		this.pessoa = pessoa;
-	}
-
-	
-	public void cancelarCompra() {
-
-		if (cadeira != null) {
-
-			try {
-				cadeira.cancelarPassagem(pessoa.getCpf());
-				
-			} catch (ClassNotFoundException e) {
-				
-				e.printStackTrace();
-			}
-		}
-
-	}
 
 }
+
+

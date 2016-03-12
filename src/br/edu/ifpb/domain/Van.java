@@ -5,6 +5,15 @@ public class Van {
 	protected int cadeira;
 	protected String tipo;
 	protected String valor;
+	protected String estado;
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 
 	public String getValor() {
 		return valor;

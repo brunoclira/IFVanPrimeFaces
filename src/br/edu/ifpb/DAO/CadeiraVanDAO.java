@@ -8,7 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.faces.convert.IntegerConverter;
+
+import br.edu.ifpb.domain.Passageiro;
 import br.edu.ifpb.domain.Van;
 
 public class CadeiraVanDAO {
@@ -176,13 +181,44 @@ public class CadeiraVanDAO {
 			System.out.println(e);
 		}
 
-		// System.out.println("TESTE " + teste);
-		/*
-		 * if (teste.equals(livre)) { valor_teste = true; ///
-		 * System.out.println("t1"); } if (teste.equals(ocupado)) { ///
-		 * System.out.println("t2"); valor_teste = false; }
-		 */
 		return quant;
+
+	}
+	
+	public List<Van> getLugares() throws ClassNotFoundException {
+
+		List<Van> listaLugar = new ArrayList<Van>();
+
+		String sql = "select* from van;";
+		try {
+			ConnectionFactory.openConnection();
+			Connection con = ConnectionFactory.getConnection();
+			PreparedStatement preparador = (PreparedStatement) con.prepareStatement(sql);
+			ResultSet rs = preparador.executeQuery(sql);
+			preparador.execute();
+			preparador.close();
+
+			while (rs.next()) {
+				Van van = new Van();
+				van.setCadeira(Integer.parseInt(rs.getString("cadeira")));
+				van.setCpf(rs.getString("cpf_id"));
+				van.setTipo(rs.getString("tipo_passagem"));
+				van.setValor(rs.getString("valor"));
+				van.setEstado(rs.getString("estado"));
+				
+				listaLugar.add(van);
+
+				// System.out.println(rs.getString("titulo"));
+				// rs.close();
+				// preparador.close();
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return listaLugar;
 
 	}
 
