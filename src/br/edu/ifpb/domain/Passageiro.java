@@ -7,7 +7,7 @@ public class Passageiro {
 	
 	private String nome;
 	private String sobrenome;
-	private String cpf;
+	protected String cpf;
 	private String sexo;
 	private String telefone;
 	private String cidade;
