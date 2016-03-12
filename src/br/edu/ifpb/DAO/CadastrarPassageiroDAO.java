@@ -40,7 +40,7 @@ public class CadastrarPassageiroDAO {
 
 		List<Passageiro> listaUsu = new ArrayList<Passageiro>();
 
-		String sql = "select* from usuario;";
+		String sql = "select* from cliente;";
 		try {
 			ConnectionFactory.openConnection();
 			Connection con = ConnectionFactory.getConnection();
@@ -51,9 +51,13 @@ public class CadastrarPassageiroDAO {
 
 			while (rs.next()) {
 				Passageiro passageiro = new Passageiro();
-				passageiro.setSobrenome(rs.getString("nome"));
-				passageiro.setCidade(rs.getString("data_nascimento"));
-				passageiro.setCpf(rs.getString("matricula"));
+				passageiro.setNome(rs.getString("nome"));
+				passageiro.setCidade(rs.getString("cidade"));
+				passageiro.setCpf(rs.getString("cpf"));
+				passageiro.setEstado(rs.getString("estado"));
+				passageiro.setSexo(rs.getString("sexo"));
+				passageiro.setSobrenome(rs.getString("sobrenome"));
+				passageiro.setTelefone(rs.getString("telefone"));
 
 				
 				listaUsu.add(passageiro);

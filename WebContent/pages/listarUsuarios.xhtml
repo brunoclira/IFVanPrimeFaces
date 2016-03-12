@@ -6,21 +6,42 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/templates/modeloSistema.xhtml">
-	
+
 	<ui:define name="menu">
 		<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
 	</ui:define>
-	
+
 	<ui:define name="conteudo">
-		
-		<p:dataTable value="#{listarUsuarioBean.usu}" var="item" border="1"
-			cellspacing="0" cellpadding="2" aling="center">
-		
-		
+
+
+		<p:dataTable var="item" value="#{usuariosBean.listaPassageiros}">
+			<p:column headerText="nome">
+				<h:outputText value="#{item.nome}" />
+			</p:column>
+			<p:column headerText="sobrenome">
+				<h:outputText value="#{item.sobrenome}" />
+			</p:column>
+			<p:column headerText="cpf">
+				<h:outputText value="#{item.cpf}" />
+			</p:column>
+			<p:column headerText="sexo">
+				<h:outputText value="#{item.sexo}" />
+			</p:column>
+			<p:column headerText="telefone">
+				<h:outputText value="#{item.telefone}" />
+			</p:column>
+			<p:column headerText="cidade">
+				<h:outputText value="#{item.cidade}" />
+			</p:column>
+			<p:column headerText="estado">
+				<h:outputText value="#{item.estado}" />
+			</p:column>
+
 		</p:dataTable>
-	
+
+
 	</ui:define>
-	
+
 	<ui:define name="rodape">
 	</ui:define>
 
