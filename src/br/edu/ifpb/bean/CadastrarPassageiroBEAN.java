@@ -1,10 +1,13 @@
 package br.edu.ifpb.bean;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import br.edu.ifpb.DAO.CadastrarPassageiroDAO;
 import br.edu.ifpb.domain.Passageiro;
+import br.edu.ifpb.util.JSFUtil;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -76,8 +79,13 @@ public class CadastrarPassageiroBEAN {
     	try {
     		CadastrarPassageiroDAO dao = new CadastrarPassageiroDAO();
 			dao.salvar(passageiro);
+			
+			JSFUtil.messagemSucesso(passageiro.getNome() + " salvo com Sucesso");
+			
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+			
+			JSFUtil.messagemError(e.getMessage());
 		} 
     }
     
