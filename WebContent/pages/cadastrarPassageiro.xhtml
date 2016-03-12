@@ -61,7 +61,11 @@
 		        </h:panelGrid>
 		 
 		        <p:commandButton value="Save" update="panel :msgGlobal" actionListener="#{CadastrarPassageiroBEAN.save}" icon="icon-floppy" />
-		    	<p:commandButton value="Reset" type="reset" />
+		    	
+		    	<p:commandButton value="Limpar" update="panel" process="@this" style="margin-right:20px;" >
+                	<p:resetInput target="panel" />
+            	</p:commandButton>
+		    
 		    </p:panel>
 		    
 		</h:form>

@@ -1,9 +1,10 @@
 package br.edu.ifpb.bean;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
+
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
+
+import org.primefaces.context.RequestContext;
 
 import br.edu.ifpb.DAO.CadastrarPassageiroDAO;
 import br.edu.ifpb.domain.Passageiro;
@@ -17,9 +18,7 @@ import java.util.Map;
 @ManagedBean(name = "CadastrarPassageiroBEAN")
 public class CadastrarPassageiroBEAN {
      
-	private Map<String,Map<String,String>> data = new HashMap<String, Map<String,String>>();
-    
-    private Passageiro passageiro = new Passageiro();
+	private Passageiro passageiro = new Passageiro();
 
 	private Map<String,String> sexos,estados;
 
@@ -87,6 +86,10 @@ public class CadastrarPassageiroBEAN {
 			
 			JSFUtil.messagemError(e.getMessage());
 		} 
+    }
+    
+    public void reset() {
+        RequestContext.getCurrentInstance().reset("form:panel");
     }
     
 }
