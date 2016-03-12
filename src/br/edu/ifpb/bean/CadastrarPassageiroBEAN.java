@@ -5,6 +5,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import br.edu.ifpb.DAO.CadastrarPassageiroDAO;
+
 import java.util.HashMap;
 import java.util.Map;
  
@@ -75,6 +77,7 @@ public class CadastrarPassageiroBEAN {
     public void save() {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage("Welcome " + firstname + " " + lastname));
+        //CadastrarPassageiroDAO cadastroDao = new CadastrarPassageiroDAO();
     }
     
 }
