@@ -6,71 +6,93 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/templates/modeloSistema.xhtml">
-	
+
 	<ui:define name="menu">
 		<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
 	</ui:define>
-	
+
 	<ui:define name="conteudo">
-		
+
 		<h:form>
-		    
-		    <p:panel id="panel" header="Novo Passageiro">
-		 
-		        <p:messages id="msgs" />
-		 
-		        <h:panelGrid columns="3" cellpadding="5">
-		            
-		            <p:outputLabel for="firstname" value="Nome:" />
-		            <p:inputText id="firstname" value="#{CadastrarPassageiroBEAN.passageiro.nome}" required="true" label="Nome">
-		                <f:validateLength minimum="2" />
-		            </p:inputText><br/>
-		            <p:message for="firstname" display="icon" />
-		 
-		            <p:outputLabel for="lastname" value="Sobrenome:" />
-		            <p:inputText id="lastname" value="#{CadastrarPassageiroBEAN.passageiro.sobrenome}" label="Sobrenome" required="true">
-		                <f:validateLength minimum="2" />
-		                <p:ajax update="msgLastname" event="keyup" />
-		            </p:inputText><br/>
-		            <p:message for="lastname" id="msgLastname" display="icon" />
-		            
-		            <p:outputLabel for="cpf" value="CPF:" />
-        			<p:inputMask id="cpf" value="#{CadastrarPassageiroBEAN.passageiro.cpf}" mask="999.999.999-99"/><br/>
-		 
-		 			<p:outputLabel for="sexo" value="Sexo: " />
-			            <p:selectOneMenu id="sexo" value="#{CadastrarPassageiroBEAN.passageiro.sexo}" style="width:150px">
-			                <f:selectItem itemLabel="Selecione o sexo" itemValue="" noSelectionOption="true" />
-			                <f:selectItems value="#{CadastrarPassageiroBEAN.sexos}" />
-			            </p:selectOneMenu><br/>
-			            
-			        <p:outputLabel for="telefone" value="Telefone:" />
-        			<p:inputMask id="telefone" value="#{CadastrarPassageiroBEAN.passageiro.telefone}" mask="(99)99999-9999"/> <br/>   
-			            
-			        <p:outputLabel for="estado" value="Estado: " />
-			            <p:selectOneMenu id="estado" value="#{CadastrarPassageiroBEAN.passageiro.estado}" style="width:150px">
-			                <f:selectItem itemLabel="Selecione o estado" itemValue="" noSelectionOption="true" />
-			                <f:selectItems value="#{CadastrarPassageiroBEAN.estados}" />
-			            </p:selectOneMenu><br/>
-		 
-		            <p:outputLabel for="cidade" value="Cidade:" />
-		            <p:inputText id="cidade" value="#{CadastrarPassageiroBEAN.passageiro.cidade}" required="true" label="Cidade">
-		                <f:validateLength minimum="2" />
-		            </p:inputText>
-			        
-		        </h:panelGrid>
-		 
-		        <p:commandButton value="Save" update="panel :msgGlobal" actionListener="#{CadastrarPassageiroBEAN.save}" icon="icon-floppy" />
-		    	
-		    	<p:commandButton value="Limpar" update="panel" process="@this" style="margin-right:20px;" >
-                	<p:resetInput target="panel" />
-            	</p:commandButton>
-		    
-		    </p:panel>
-		    
+
+			<p:panel id="panel" header="Novo Passageiro">
+
+				<p:messages id="msgs" />
+
+				<h:panelGrid columns="3" cellpadding="5">
+
+					<p:outputLabel for="firstname" value="Nome:" />
+					<p:inputText id="firstname"
+						value="#{CadastrarPassageiroBEAN.passageiro.nome}" required="true"
+						label="Nome">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+
+					<p:message for="firstname" display="icon" />
+
+					<p:outputLabel for="lastname" value="Sobrenome:" />
+					<p:inputText id="lastname"
+						value="#{CadastrarPassageiroBEAN.passageiro.sobrenome}"
+						label="Sobrenome" required="true">
+						<f:validateLength minimum="2" />
+						<p:ajax update="msgLastname" event="keyup" />
+					</p:inputText>
+
+					<p:message for="lastname" id="msgLastname" display="icon" />
+
+					<p:outputLabel for="cpf" value="CPF:" />
+					<p:inputMask id="cpf"
+						value="#{CadastrarPassageiroBEAN.passageiro.cpf}"
+						mask="999.999.999-99" />
+
+					<br></br>
+					<p:outputLabel for="sexo" value="Sexo: " />
+					<p:selectOneMenu id="sexo"
+						value="#{CadastrarPassageiroBEAN.passageiro.sexo}">
+						<f:selectItem itemLabel="Selecione o sexo" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{CadastrarPassageiroBEAN.sexos}" />
+					</p:selectOneMenu>
+
+					<br></br>
+					<p:outputLabel for="telefone" value="Telefone:" />
+					<p:inputMask id="telefone"
+						value="#{CadastrarPassageiroBEAN.passageiro.telefone}"
+						mask="(99)99999-9999" />
+
+					<br></br>
+					<p:outputLabel for="estado" value="Estado: " />
+					<p:selectOneMenu id="estado"
+						value="#{CadastrarPassageiroBEAN.passageiro.estado}">
+						<f:selectItem itemLabel="Selecione o estado" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{CadastrarPassageiroBEAN.estados}" />
+					</p:selectOneMenu>
+
+					<br></br>
+					<p:outputLabel for="cidade" value="Cidade:" />
+					<p:inputText id="cidade"
+						value="#{CadastrarPassageiroBEAN.passageiro.cidade}"
+						required="true" label="Cidade">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+
+				</h:panelGrid>
+
+				<p:commandButton value="Save" update="panel :msgGlobal"
+					actionListener="#{CadastrarPassageiroBEAN.save}" icon="icon-floppy" />
+
+				<p:commandButton value="Limpar" update="panel" process="@this"
+					style="margin-right:20px;">
+					<p:resetInput target="panel" />
+				</p:commandButton>
+
+			</p:panel>
+
 		</h:form>
-		
+
 	</ui:define>
-	
+
 	<ui:define name="rodape">
 	</ui:define>
 
