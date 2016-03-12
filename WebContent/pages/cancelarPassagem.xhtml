@@ -12,14 +12,47 @@
 	</ui:define>
 
 	<ui:define name="conteudo">
-		
-		<p:dataTable var="item" value="#{cancelarCompraBean.lugares}">
-			<p:column headerText="Lugar">
-				<h:outputText value="#{item.cadeira}" />
-			</p:column>
-			
-		</p:dataTable>
-	
+		<p:panel id="panel" header="Liata de Todas as Passagens">
+			<p:dataTable var="item" value="#{cancelarCompraBean.lugares}">
+				<p:column headerText="Lugar">
+					<h:outputText value="#{item.cadeira}" />
+				</p:column>
+
+				<p:column headerText="cpf Comprador">
+					<h:outputText value="#{item.cpf}" />
+				</p:column>
+				<p:column headerText="Estado">
+					<h:outputText value="#{item.estado}" />
+				</p:column>
+
+				<p:column headerText="Tipo da Passagem">
+					<h:outputText value="#{item.tipo}" />
+				</p:column>
+
+				<p:column headerText="Valor da Passagem">
+					<h:outputText value="#{item.valor}" />
+				</p:column>
+
+
+
+
+			</p:dataTable>
+		</p:panel>
+		<h:form>
+			<p:panel id="panel" header="Cancelar Passagem">
+				<p:outputLabel for="cpf" value="Cpf do usuario" />
+				<p:inputText id="cpf" value="#{cancelarCompraBean.cpfRemover}"
+					required="true" label="Cpf">
+					<f:validateLength minimum="2" />
+				</p:inputText>
+				<h:commandButton id="Cancelar" value="cancelar"
+					action="#{cancelarCompraBean.cancelar}"/>
+			</p:panel>
+
+		</h:form>
+
+
+
 	</ui:define>
 
 	<ui:define name="rodape">
