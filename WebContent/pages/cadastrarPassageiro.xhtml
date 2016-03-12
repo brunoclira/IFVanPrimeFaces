@@ -22,41 +22,39 @@
 		        <h:panelGrid columns="3" cellpadding="5">
 		            
 		            <p:outputLabel for="firstname" value="Nome:" />
-		            <p:inputText id="firstname" value="#{CadastrarPassageiroBEAN.firstname}" required="true" label="Nome">
+		            <p:inputText id="firstname" value="#{CadastrarPassageiroBEAN.passageiro.nome}" required="true" label="Nome">
 		                <f:validateLength minimum="2" />
-		            </p:inputText>
+		            </p:inputText><br/>
 		            <p:message for="firstname" display="icon" />
 		 
 		            <p:outputLabel for="lastname" value="Sobrenome:" />
-		            <p:inputText id="lastname" value="#{CadastrarPassageiroBEAN.lastname}" label="Sobrenome" required="true">
+		            <p:inputText id="lastname" value="#{CadastrarPassageiroBEAN.passageiro.sobrenome}" label="Sobrenome" required="true">
 		                <f:validateLength minimum="2" />
 		                <p:ajax update="msgLastname" event="keyup" />
-		            </p:inputText>
+		            </p:inputText><br/>
 		            <p:message for="lastname" id="msgLastname" display="icon" />
 		            
 		            <!-- Criar daqui pra baixo no BEAN -->
 		            <p:outputLabel for="cpf" value="CPF:" />
-        			<p:inputMask id="cpf" value="#{CadastrarPassageiroBEAN.cpf}" mask="999.999.999-99"/>
+        			<p:inputMask id="cpf" value="#{CadastrarPassageiroBEAN.passageiro.cpf}" mask="999.999.999-99"/><br/>
 		 
 		 			<p:outputLabel for="sexo" value="Sexo: " />
-			            <p:selectOneMenu id="sexo" value="#{CadastrarPassageiroBEAN.sexo}" style="width:150px">
-			                <p:ajax listener="#{CadastrarPassageiroBEAN.onSexoChange}" />
+			            <p:selectOneMenu id="sexo" value="#{CadastrarPassageiroBEAN.passageiro.sexo}" style="width:150px">
 			                <f:selectItem itemLabel="Selecione o sexo" itemValue="" noSelectionOption="true" />
 			                <f:selectItems value="#{CadastrarPassageiroBEAN.sexos}" />
-			            </p:selectOneMenu>
+			            </p:selectOneMenu><br/>
 			            
 			        <p:outputLabel for="telefone" value="Telefone:" />
-        			<p:inputMask id="telefone" value="#{CadastrarPassageiroBEAN.telefone}" mask="(99)99999-9999"/>    
+        			<p:inputMask id="telefone" value="#{CadastrarPassageiroBEAN.passageiro.telefone}" mask="(99)99999-9999"/> <br/>   
 			            
 			        <p:outputLabel for="estado" value="Estado: " />
-			            <p:selectOneMenu id="estado" value="#{CadastrarPassageiroBEAN.estado}" style="width:150px">
-			                <p:ajax listener="#{CadastrarPassageiroBEAN.onSexoChange}"/>
+			            <p:selectOneMenu id="estado" value="#{CadastrarPassageiroBEAN.passageiro.estado}" style="width:150px">
 			                <f:selectItem itemLabel="Selecione o estado" itemValue="" noSelectionOption="true" />
 			                <f:selectItems value="#{CadastrarPassageiroBEAN.estados}" />
-			            </p:selectOneMenu>
+			            </p:selectOneMenu><br/>
 		 
 		            <p:outputLabel for="cidade" value="Cidade:" />
-		            <p:inputText id="cidade" value="#{CadastrarPassageiroBEAN.cidade}" required="true" label="Cidade">
+		            <p:inputText id="cidade" value="#{CadastrarPassageiroBEAN.passageiro.cidade}" required="true" label="Cidade">
 		                <f:validateLength minimum="2" />
 		            </p:inputText>
 			        

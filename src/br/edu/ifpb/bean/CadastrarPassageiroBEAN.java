@@ -1,12 +1,12 @@
 package br.edu.ifpb.bean;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 
 import br.edu.ifpb.DAO.CadastrarPassageiroDAO;
+import br.edu.ifpb.domain.Passageiro;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
  
@@ -15,16 +15,11 @@ import java.util.Map;
 public class CadastrarPassageiroBEAN {
      
 	private Map<String,Map<String,String>> data = new HashMap<String, Map<String,String>>();
-    private String firstname;
-    private String lastname;
-    private String cpf;
-    private String telefone;
-	private String sexo;
-    private String cidade;
-    private String estado;
+    
+    private Passageiro passageiro = new Passageiro();
 
 	private Map<String,String> sexos,estados;
-    
+
     @PostConstruct
     public void init() {
         sexos  = new HashMap<String, String>();
@@ -60,90 +55,30 @@ public class CadastrarPassageiroBEAN {
         estados.put("Sergipe - SE", "Sergipe - SE");
         estados.put("Tocantins - TO", "Tocantins - TO");
     }
+
+	public Passageiro getPassageiro() {
+		return passageiro;
+	}
+
+	public void setPassageiro(Passageiro passageiro) {
+		this.passageiro = passageiro;
+	}
     
     public Map<String, String> getSexos() {
         return sexos;
     }
     
     public Map<String, String> getEstados() {
-        return sexos;
-    }
-    
-    public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-    
-    public String getEstado() {
-  		return estado;
-  	}
-
-  	public void setEstado(String estado) {
-  		this.estado = estado;
-  	}
-    
-    public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String getFirstname() {
-        return firstname;
-    }
- 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
- 
-    public String getLastname() {
-        return lastname;
-    }
- 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-    
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-    
-    public void displayLocation() {
-        FacesMessage msg;
-        
-        if(sexo != null)
-            msg = new FacesMessage("Selected" + sexo);
-        else
-            msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid", "Sexo is not selected.");
-        
-        if(estado != null)
-            msg = new FacesMessage("Selected" + estado);
-        else
-            msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid", "Estado is not selected.");
-             
-        FacesContext.getCurrentInstance().addMessage(null, msg);  
+        return estados;
     }
  
     public void save() {
-        ///FacesContext.getCurrentInstance().addMessage(null,
-                //new FacesMessage("Welcome " + firstname + " " + lastname));
+    	try {
+    		CadastrarPassageiroDAO dao = new CadastrarPassageiroDAO();
+			dao.salvar(passageiro);
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		} 
     }
     
 }

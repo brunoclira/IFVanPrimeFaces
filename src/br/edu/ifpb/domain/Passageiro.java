@@ -1,5 +1,8 @@
 package br.edu.ifpb.domain;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 public class Passageiro {
 	
 	private String nome;
@@ -52,5 +55,21 @@ public class Passageiro {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
+	
+    public void displayLocation() {
+        FacesMessage msg;
+        
+        if(sexo != null)
+            msg = new FacesMessage("Selected" + sexo);
+        else
+            msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid", "Sexo is not selected.");
+        
+        if(estado != null)
+            msg = new FacesMessage("Selected" + estado);
+        else
+            msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid", "Estado is not selected.");
+             
+        FacesContext.getCurrentInstance().addMessage(null, msg);  
+    }
+    
 }
