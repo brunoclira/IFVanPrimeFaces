@@ -40,13 +40,15 @@
 		</p:panel>
 		<h:form>
 			<p:panel id="panel" header="Cancelar Passagem">
-				<p:outputLabel for="cpf" value="Cpf do usuario" />
-				<p:inputText id="cpf" value="#{cancelarCompraBean.cpfRemover}"
-					required="true" label="Cpf">
-					<f:validateLength minimum="2" />
-				</p:inputText>
-				<h:commandButton id="Cancelar" value="cancelar"
-					action="#{cancelarCompraBean.cancelar}"/>
+
+		      
+				<p:outputLabel for="cpf" value="Cpf do Usuario: " />
+				<p:inputMask id="cpf" value="#{cancelarCompraBean.cpfRemover}" mask="999.999.999-99" 
+		      	required="true"/>
+				
+				<p:commandButton value="Cancelar" update="panel :msgGlobal" 
+				actionListener="#{cancelarCompraBean.cancelar}" icon="icon-floppy" />
+		
 			</p:panel>
 
 		</h:form>

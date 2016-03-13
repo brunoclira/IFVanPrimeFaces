@@ -6,10 +6,9 @@ import javax.faces.bean.ManagedBean;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifpb.DAO.CadastrarPassageiroDAO;
 import br.edu.ifpb.DAO.CadeiraVanDAO;
-import br.edu.ifpb.domain.Passageiro;
 import br.edu.ifpb.domain.Van;
+import br.edu.ifpb.util.JSFUtil;
 @ManagedBean
 public class CancelarCompraBean {
 		private List<Van> lugares;
@@ -23,7 +22,7 @@ public class CancelarCompraBean {
 		public void setCpfRemover(String cpfRemover) {
 			this.cpfRemover = cpfRemover;
 		}
-
+		
 		public List<Van> getLugares() {
 	
 			Van van = new Van();
@@ -53,11 +52,12 @@ public class CancelarCompraBean {
 		public void setVan(Van van) {
 			this.van = van;
 		}
-		
+
 public void cancelar(){
 	CadeiraVanDAO vanDao=new CadeiraVanDAO();
 	try {
 		vanDao.cancelarPassagem(this.cpfRemover);
+		JSFUtil.messagemSucesso(van.getCpf() + " Passagem Cancelada");
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
