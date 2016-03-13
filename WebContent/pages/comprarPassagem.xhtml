@@ -19,21 +19,28 @@
 				<h:panelGrid columns="3" cellpadding="5">
 					
 					<p:outputLabel for="cpf" value="CPF:" />
-		        			<p:inputMask id="cpf" value="#{CadastrarPassageiroBEAN.passageiro.cpf}" mask="999.999.999-99"/><br/>
+		        			<p:inputMask id="cpf" value="#{ComprarPassagemBEAN.van.cpf}" mask="999.999.999-99"/><br/>
 				
 					<p:outputLabel for="poltrona" value="Escolha sua poltrona: " />
-			            <p:selectOneMenu id="poltrona" value="#{ComprarPassagemBEAN.van.poltrona}" style="width:150px">
+			            <p:selectOneMenu id="poltrona" value="#{ComprarPassagemBEAN.van.cadeira}" style="width:150px">
 			                <f:selectItem itemLabel="--" itemValue="" noSelectionOption="true" />
-			                <f:selectItems value="#{CadastrarPassageiroBEAN.poltronas}" />
+			                <f:selectItems value="#{ComprarPassagemBEAN.poltronas}" />
 			            </p:selectOneMenu><br/>
 			            
 			        <p:outputLabel for="tipo_passagem" value="Tipo da passagem: " />
-			            <p:selectOneMenu id="tipo_passagem" value="#{ComprarPassagemBEAN.van.tipo_passagem}" style="width:150px">
+			            <p:selectOneMenu id="tipo_passagem" value="#{ComprarPassagemBEAN.van.tipo}" style="width:150px">
 			                <f:selectItem itemLabel="--" itemValue="" noSelectionOption="true" />
-			                <f:selectItems value="#{CadastrarPassageiroBEAN.tipo_passagens}" />
+			                <f:selectItems value="#{ComprarPassagemBEAN.tipo_passagens}" />
 			            </p:selectOneMenu><br/>
 			            
 				</h:panelGrid>
+				
+				<p:commandButton value="Save" update="panel :msgGlobal" actionListener="#{ComprarPassagemBEAN.save}" icon="icon-floppy" />
+		    	
+		    	<p:commandButton value="Limpar" update="panel" process="@this" style="margin-right:20px;" >
+                	<p:resetInput target="panel" />
+            	</p:commandButton>
+				
 			</p:panel>
 		</h:form>
 	
@@ -41,5 +48,6 @@
 	
 	<ui:define name="rodape">
 	</ui:define>
+
 
 </ui:composition>
