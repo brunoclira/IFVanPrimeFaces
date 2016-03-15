@@ -40,7 +40,7 @@ public class CadastrarPassageiroDAO {
 
 		List<Passageiro> listaUsu = new ArrayList<Passageiro>();
 
-		String sql = "select* from cliente;";
+		String sql = "select* from cliente order by nome asc;";
 		try {
 			ConnectionFactory.openConnection();
 			Connection con = ConnectionFactory.getConnection();
@@ -58,17 +58,11 @@ public class CadastrarPassageiroDAO {
 				passageiro.setSexo(rs.getString("sexo"));
 				passageiro.setSobrenome(rs.getString("sobrenome"));
 				passageiro.setTelefone(rs.getString("telefone"));
-
 				
 				listaUsu.add(passageiro);
-
-				// System.out.println(rs.getString("titulo"));
-				// rs.close();
-				// preparador.close();
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

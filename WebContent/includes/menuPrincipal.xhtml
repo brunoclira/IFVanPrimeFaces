@@ -5,35 +5,43 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-	
 	<h:form>
+		
 		<p:menubar>
-		<p:menuitem value="home" url="/pages/home.xhtml" />
-	        <p:submenu label="Passageiros" icon="icon-users-2">
-	        	<p:menuitem value="Cadastrar passageiro" url="/pages/cadastrarPassageiro.xhtml" />
-	        	
-	        	<p:menuitem value="Listar Passageiros" url="/pages/listarUsuarios.xhtml" />
-	        </p:submenu>
-	        	
-	        <p:submenu label="Passagens">
-	        	<p:menuitem value="Comprar passagem" url="/pages/comprarPassagem.xhtml" />
-	        	<p:menuitem value="Cancelar passagem" url="/pages/cancelarPassagem.xhtml" />
-	        </p:submenu>
-	        	
-	        <p:submenu label="Fatura">
-	        	<p:menuitem value="Calcular fatura" url="#" />
-	        	<p:menuitem value="Total apurado" url="#" />
-	        </p:submenu>
-	        	
-	        <p:submenu label="Localizar">
-	        	<p:menuitem value="Localizar Van" url="#" />
-	        </p:submenu>
-	        	
-	        <f:facet name="options">
-		        <p:inputText style="margin-right:10px" placeholder="Search" icon="icon-search-2"/>
-		        <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
-		    </f:facet>	
-	     </p:menubar>
-	</h:form>
+		
+			<p:menuitem value="home" url="/pages/home.xhtml" />
+			
+			<p:submenu label="Passageiros" icon="icon-users-2">
+				<p:menuitem value="Cadastrar passageiro"
+					url="/pages/cadastrarPassageiro.xhtml" />
 
+				<p:menuitem value="Listar Passageiros"
+					url="/pages/listarUsuarios.xhtml" />
+			</p:submenu>
+			
+			<p:submenu label="Passagens">
+				<p:menuitem value="Comprar passagem"
+					url="/pages/comprarPassagem.xhtml" />
+				<p:menuitem value="Cancelar passagem"
+					url="/pages/cancelarPassagem.xhtml" />
+			</p:submenu>
+			
+			<p:submenu label="Fatura">
+				<p:menuitem value="Calcular fatura" url="#" />
+				<p:menuitem value="Total apurado" url="#" />
+			</p:submenu>
+			
+			<p:submenu label="Localizar">
+				<p:menuitem value="Localizar Van" url="#" />
+			</p:submenu>
+			
+			<f:facet name="options">
+				<p:inputText style="margin-right:10px" placeholder="Search"
+					icon="icon-search-2" />
+				<p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+			</f:facet>
+		
+		</p:menubar>
+	
+	</h:form>
 </ui:composition>
