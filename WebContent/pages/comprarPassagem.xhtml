@@ -35,9 +35,11 @@
 			            
 				</h:panelGrid>
 				
-				<p:commandButton value="Save" update="panel :msgGlobal" actionListener="#{ComprarPassagemBEAN.save}" icon="icon-floppy" />
+				<p:commandButton value="Save" update="panel :msgGlobal" actionListener="#{ComprarPassagemBEAN.save}" 
+				icon="ui-icon-plusthick" />
 		    	
-		    	<p:commandButton value="Limpar" update="panel" process="@this" style="margin-right:20px;" >
+		    	<p:commandButton value="Limpar" update="panel" process="@this" style="margin-right:20px;" 
+		    	icon="ui-icon-minusthick">
                 	<p:resetInput target="panel" />
             	</p:commandButton>
 				
