@@ -10,22 +10,26 @@
 	<title>IFVAN</title>
 </h:head>
 <h:body>
-	<h:form>            
-	    <p:dialog header="Login" widgetVar="dlg" resizable="false">
-	        <h:panelGrid columns="2" cellpadding="5">
-	            <h:outputLabel for="username" value="Username:" />
-	            <p:inputText id="username" value="#" required="true" label="username" />
-	 
-	            <h:outputLabel for="password" value="Password:" />
-	            <p:password id="password" value="#" required="true" label="password" />
-	 
-	            <f:facet name="footer">
-	                <p:commandButton value="Login" update="growl" actionListener="#"
-	                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-	            </f:facet>  
-	        </h:panelGrid>
-	    </p:dialog>
+	
+	<h:form>
+			<h:panelGrid columns="2" id="matchGrid" cellpadding="5">
+
+				<h:outputLabel for="username" value="Usuário:" />
+				<p:inputText id="username" label="username"
+					value="${LoginBEAN.usuario.username}" required="true" 
+					requiredMessage="Campo nome Obrigatório" />
+
+				<h:outputLabel for="senha" value="Senha:" />
+				<p:password id="senha" value="${LoginBEAN.usuario.senha}"
+					label="senha" required="true"
+					requiredMessage="Campo nome Obrigatório" />
+					
+				<p:commandButton id="Login" value="Login"
+					action="#{LoginBEAN.login}" icon="icon-login" />
+					
+			</h:panelGrid>
 	</h:form>
+	
 </h:body>
 
 </html>

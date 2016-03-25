@@ -29,6 +29,13 @@ create table fatura(
     cadeira INT PRIMARY KEY
 );
 
+create table usuarios(
+	nome VARCHAR(50),
+	usuario VARCHAR(50),
+	email VARCHAR(50),
+	senha VARCHAR(50)
+);
+
 
 
 insert into van (cadeira,cpf_id,estado,tipo_passagem,valor) values(1, " ", "free","","");
