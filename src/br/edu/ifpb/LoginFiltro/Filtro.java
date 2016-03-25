@@ -45,7 +45,7 @@ public class Filtro implements Filter {
 		HttpSession sessao = rq.getSession();
 		String reqURI = rq.getRequestURI();
 
-		if (reqURI.equalsIgnoreCase("/bookmooch/") || sessao.getAttribute("usuario") != null
+		if (reqURI.equalsIgnoreCase("/IFVanPrimeFaces/") || sessao.getAttribute("usuario") != null
 				|| (rq.getRequestURI().endsWith("index.xhtml"))) {
 			System.out.println("fluxo");
 			chain.doFilter(request, response);
