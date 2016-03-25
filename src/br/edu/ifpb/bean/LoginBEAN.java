@@ -45,8 +45,8 @@ public class LoginBEAN {
 		try {
 			if (usuDao.validarUsuario(usuario)) {
 				SessionUtil.setParam("usuario", usuario);
-				System.out.println("cadastrado");
-				return "pages/home.xhtml?faces-redirect=true";
+				//System.out.println("cadastrado");
+				return "/pages/index.xhtml?faces-redirect=true";
 			} else {
 				return "../login.xhtml?faces-redirect=true";
 			}
