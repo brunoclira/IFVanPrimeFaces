@@ -1,4 +1,4 @@
-package br.edu.ifpb.bean;
+/*package br.edu.ifpb.bean;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -69,4 +69,4 @@ public class GenericBEAN {
 		return text;
 	}
 
-}
+}*/
