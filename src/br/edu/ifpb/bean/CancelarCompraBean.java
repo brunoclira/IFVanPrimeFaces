@@ -3,6 +3,12 @@ package br.edu.ifpb.bean;
 
 import javax.faces.bean.ManagedBean;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,16 +32,14 @@ public class CancelarCompraBean {
 		public List<Van> getLugares() {
 	
 			Van van = new Van();
-			CadeiraVanDAO vanDao = new CadeiraVanDAO();
+			Client cliente = new Client();
 
-			try {
-				lugares = (ArrayList<Van>) vanDao.getLugares();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			WebResource wr = cliente.resource("http://localhost:8080/IFVanServico/services/cadeira/listar/");
+			String json = wr.get(String.class);
+			Gson gson = new Gson();
 
-			return lugares;
+			return gson.fromJson(json, new TypeToken<List<Van>>() {
+			}.getType());
 		}
 
 		public void setLugares(List<Van> lugares) {
@@ -54,14 +58,17 @@ public class CancelarCompraBean {
 		}
 
 public void cancelar(){
-	CadeiraVanDAO vanDao=new CadeiraVanDAO();
-	try {
-		vanDao.cancelarPassagem(this.cpfRemover);
-		JSFUtil.messagemSucesso(van.getCpf() + " Passagem Cancelada");
-	} catch (ClassNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	
+	Gson gson = new Gson();
+	System.out.println();
+
+	Client client = Client.create();
+
+	WebResource webResource = client.resource("http://localhost:8080/IFVanServico/services/cancelar");
+	
+	String input = cpfRemover;
+
+	ClientResponse response = webResource.type("application/json").post(ClientResponse.class, input);
 	
 }
 
