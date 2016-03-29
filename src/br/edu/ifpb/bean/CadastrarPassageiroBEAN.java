@@ -1,18 +1,21 @@
 package br.edu.ifpb.bean;
 
-import javax.annotation.PostConstruct;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import org.primefaces.context.RequestContext;
 
-import br.edu.ifpb.DAO.CadastrarPassageiroDAO;
+import com.google.gson.Gson;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+
 import br.edu.ifpb.domain.Passageiro;
 import br.edu.ifpb.util.JSFUtil;
-
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
  
  
 @ManagedBean(name = "CadastrarPassageiroBEAN")
@@ -31,29 +34,29 @@ public class CadastrarPassageiroBEAN {
         estados = new HashMap<String, String>();
         estados.put("Acre - AC", "Acre - AC");
         estados.put("Alagoas - AL", "Alagoas - AL");
-        estados.put("Amapá - AP", "Amapá - AP");
+        estados.put("Amapï¿½ - AP", "Amapï¿½ - AP");
         estados.put("Amazonas - AM", "Amazonas - AM");
         estados.put("Bahia - BA", "Bahia - BA");
-        estados.put("Ceará - CE", "Ceará - CE");
+        estados.put("Cearï¿½ - CE", "Cearï¿½ - CE");
         estados.put("Distrito Federal - DF", "Distrito Federal - DF");
-        estados.put("Espírito Santo - ES", "Espírito Santo - ES");
-        estados.put("Goiás - GO", "Goiás - GO");
-        estados.put("Maranhão - MA", "Maranhão - MA");
+        estados.put("Espï¿½rito Santo - ES", "Espï¿½rito Santo - ES");
+        estados.put("Goiï¿½s - GO", "Goiï¿½s - GO");
+        estados.put("Maranhï¿½o - MA", "Maranhï¿½o - MA");
         estados.put("Mato Grosso - MT", "Mato Grosso - MT");
         estados.put("Mato Grosso do Sul - MS", "Mato Grosso do Sul - MS");
         estados.put("Minas Gerais - MG", "Minas Gerais - MG");
-        estados.put("Pará - PA", "Pará - PA");
-        estados.put("Paraíba - PB", "Paraíba - PB");
-        estados.put("Paraná - PR", "Paraná - PR");
+        estados.put("Parï¿½ - PA", "Parï¿½ - PA");
+        estados.put("Paraï¿½ba - PB", "Paraï¿½ba - PB");
+        estados.put("Paranï¿½ - PR", "Paranï¿½ - PR");
         estados.put("Pernambuco - PE", "Pernambuco - PE");
-        estados.put("Piauí - PI", "Piauí - PI");
+        estados.put("Piauï¿½ - PI", "Piauï¿½ - PI");
         estados.put("Rio de Janeiro - RJ", "Rio de Janeiro - RJ");
         estados.put("Rio Grande do Norte - RN", "Rio Grande do Norte - RN");
         estados.put("Rio Grande do Sul - RS", "Rio Grande do Sul - RS");
-        estados.put("Rondônia - RO", "Rondônia - RO");
+        estados.put("Rondï¿½nia - RO", "Rondï¿½nia - RO");
         estados.put("Roraima - RR", "Roraima - RR");
         estados.put("Santa Catarina - SC", "Santa Catarina - SC");
-        estados.put("São Paulo - SP", "São Paulo - SP");
+        estados.put("Sï¿½o Paulo - SP", "Sï¿½o Paulo - SP");
         estados.put("Sergipe - SE", "Sergipe - SE");
         estados.put("Tocantins - TO", "Tocantins - TO");
     }
@@ -75,17 +78,21 @@ public class CadastrarPassageiroBEAN {
     }
  
     public void save() {
-    	try {
-    		CadastrarPassageiroDAO dao = new CadastrarPassageiroDAO();
-			dao.salvar(passageiro);
-			
-			JSFUtil.messagemSucesso(passageiro.getNome() + " salvo com Sucesso");
-			
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-			
-			JSFUtil.messagemError(e.getMessage());
-		} 
+  
+		Gson gson=new Gson();
+		System.out.println();
+
+		
+		Client client = Client.create();
+
+		WebResource webResource = client
+		   .resource("http://localhost:8080/IFVanServico/services/cadastrar");
+		String input =gson.toJson(passageiro);
+
+		ClientResponse response = webResource.type("application/json")
+		   .post(ClientResponse.class, input);
+		
+		JSFUtil.messagemSucesso(passageiro.getNome() + " salvo com Sucesso"); 
     }
     
     public void reset() {
