@@ -9,6 +9,11 @@ import javax.faces.bean.ManagedBean;
 
 import org.primefaces.context.RequestContext;
 
+import com.google.gson.Gson;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+
 import br.edu.ifpb.DAO.ComprarPassagemDAO;
 import br.edu.ifpb.domain.Van;
 import br.edu.ifpb.util.JSFUtil;
@@ -66,17 +71,22 @@ public class ComprarPassagemBEAN {
 	}
     
     public void save() {
-    	try {
-    		ComprarPassagemDAO dao = new ComprarPassagemDAO();
-			dao.salvar(van);
-			
-			JSFUtil.messagemSucesso(van.getCpf() + " comprado com Sucesso");
-			
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-			
-			JSFUtil.messagemError(e.getMessage());
-		} 
+    	Gson gson=new Gson();
+		System.out.println();
+
+		
+		Client client = Client.create();
+
+		WebResource webResource = client
+		   .resource("http://localhost:8080/IFVanServico/services/comprar");
+		String input =gson.toJson(van);
+
+		ClientResponse response = webResource.type("application/json")
+		   .post(ClientResponse.class, input);
+		
+		
+		
+		JSFUtil.messagemSucesso(van.getCpf() + " comprado com Sucesso"); 
     }
     
     public void reset() {
