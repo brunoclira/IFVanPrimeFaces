@@ -11,7 +11,6 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-import br.edu.ifpb.DAO.CadastrarPassageiroDAO;
 import br.edu.ifpb.domain.Passageiro;
 import br.edu.ifpb.util.JSFUtil;
 

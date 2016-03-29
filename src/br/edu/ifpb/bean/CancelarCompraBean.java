@@ -12,7 +12,6 @@ import com.sun.jersey.api.client.WebResource;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifpb.DAO.CadeiraVanDAO;
 import br.edu.ifpb.domain.Van;
 import br.edu.ifpb.util.JSFUtil;
 @ManagedBean

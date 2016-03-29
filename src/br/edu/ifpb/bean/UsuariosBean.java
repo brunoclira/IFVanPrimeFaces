@@ -10,7 +10,6 @@ import com.sun.jersey.api.client.WebResource;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifpb.DAO.CadastrarPassageiroDAO;
 import br.edu.ifpb.domain.Passageiro;
 
 //@SessionScoped
