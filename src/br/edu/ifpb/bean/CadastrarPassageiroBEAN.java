@@ -80,6 +80,7 @@ public class CadastrarPassageiroBEAN {
     public void save() {
   
 		Gson gson=new Gson();
+		
 		System.out.println();
 
 		
