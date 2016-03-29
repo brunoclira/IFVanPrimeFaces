@@ -1,0 +1,87 @@
+element.style {
+}
+.tile:hover {
+    background-color: rgba(101, 123, 139, 0.28) !important;
+}
+.tile {
+    position: relative;
+    padding: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #eff0f2;
+    border-radius: 6px;
+}
+.tile {
+    background-color: #ECF0F1 !important;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+Inherited from a
+a:hover, a:focus {
+    color: #1abc9c;
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: #2a6496;
+    text-decoration: underline;
+}
+a {
+    color: #16a085;
+    text-decoration: none;
+    -webkit-transition: .25s;
+    transition: .25s;
+}
+a {
+    color: #428bca;
+    text-decoration: none;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
+Inherited from body
+body {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.72222;
+    color: #34495e;
+    background-color: #fff;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+Inherited from html
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+:before, :after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+:before, :after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

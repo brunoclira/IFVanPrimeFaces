@@ -12,11 +12,29 @@
 	</ui:define>
 
 	<ui:define name="conteudo">
-		<!-- <h:form>
-			<p:galleria value="#{imagesView.imagens}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-			    <p:graphicImage name="/resources/imagens/transport.png" alt="IFVAN" title="IFVan"/>
-			</p:galleria>
-		</h:form> -->
+		<h:form>
+
+			<div class="container">
+				<div class="row">
+
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<a href="programaInstitucional.jsf">
+							<div class="tile">
+								<h:graphicImage
+									value="/resources/imagens/transport.png"
+									alt="Programa Institucional" />
+								<h3 class="tile-title">Home</h3>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</div>
+
+		</h:form>
 	</ui:define>
 
+	 <script src="../resources/js/jquery.min.js"></script> 
+	<script src="../resources/css/teste.css"></script>
+	
 </ui:composition>

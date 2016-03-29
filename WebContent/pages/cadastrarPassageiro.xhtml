@@ -21,7 +21,7 @@
 
 					<p:outputLabel for="firstname" value="Nome:" />
 					<p:inputText id="firstname"
-						value="#{CadastrarPassageiroBEAN.passageiro.nome}" required="true"
+						value="#{CadastrarPassageiroBEAN.passageiro.nome}" 
 						label="Nome">
 						<f:validateLength minimum="2" />
 					</p:inputText>
@@ -31,7 +31,7 @@
 					<p:outputLabel for="lastname" value="Sobrenome:" />
 					<p:inputText id="lastname"
 						value="#{CadastrarPassageiroBEAN.passageiro.sobrenome}"
-						label="Sobrenome" required="true">
+						label="Sobrenome" >
 						<f:validateLength minimum="2" />
 						<p:ajax update="msgLastname" event="keyup" />
 					</p:inputText>
@@ -71,19 +71,17 @@
 					<p:outputLabel for="cidade" value="Cidade:" />
 					<p:inputText id="cidade"
 						value="#{CadastrarPassageiroBEAN.passageiro.cidade}"
-						required="true" label="Cidade">
+						 label="Cidade">
 						<f:validateLength minimum="2" />
 					</p:inputText>
 
 				</h:panelGrid>
 
-				<p:commandButton value="Save" update="panel :msgGlobal"
+				<p:commandButton value="Cadastrar" update="panel :msgGlobal"
 					actionListener="#{CadastrarPassageiroBEAN.save}" icon="ui-icon-plusthick"/>
 
-				<p:commandButton value="Limpar" update="panel" process="@this"
-					style="margin-right:20px;" icon="ui-icon-minusthick">
-					<p:resetInput target="panel" />
-				</p:commandButton>
+				<p:commandButton value="Excluir" update="panel :msgGlobal"
+					actionListener="#{CadastrarPassageiroBEAN.delete}" icon="ui-icon-minusthick"/>
 
 			</p:panel>
 

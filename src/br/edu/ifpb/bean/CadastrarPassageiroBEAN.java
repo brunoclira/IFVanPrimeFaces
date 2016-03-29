@@ -78,6 +78,7 @@ public class CadastrarPassageiroBEAN {
 	}
 
 	public void save() {
+
 		Gson gson = new Gson();
 
 		System.out.println();
@@ -92,8 +93,21 @@ public class CadastrarPassageiroBEAN {
 		JSFUtil.messagemSucesso(passageiro.getNome() + " salvo com Sucesso");
 	}
 
-	public void reset() {
-		RequestContext.getCurrentInstance().reset("form:panel");
+	public void delete() {
+		
+		Gson gson = new Gson();
+
+		System.out.println();
+
+		Client client = Client.create();
+
+		WebResource webResource = client.resource("http://localhost:8080/IFVanServico/services/delete");
+		String input = gson.toJson(passageiro);
+
+		ClientResponse response = webResource.type("application/json").post(ClientResponse.class, input);
+
+		JSFUtil.messagemSucesso(passageiro.getCpf() + " excluído com Sucesso");
+	
 	}
 
 }
