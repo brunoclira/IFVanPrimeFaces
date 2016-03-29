@@ -1,4 +1,4 @@
-package br.edu.ifpb.bean;
+/*package br.edu.ifpb.bean;
 
 import java.io.Serializable;
 import java.security.Security;
@@ -36,4 +36,4 @@ public class UsuarioLogadoBEAN implements Serializable {
 	public UsuarioLogadoBEAN() {
 		usuario = new Usuario();
 	}
-}
+}*/
