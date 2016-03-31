@@ -15,11 +15,21 @@ CREATE TABLE cliente(
 );
 
 create table van(
-	cadeira INT PRIMARY KEY,
+	id_van INT PRIMARY KEY AUTO_INCREMENT,
+	cadeira INT,
 	cpf_id VARCHAR(50),
 	estado VARCHAR(50),
 	tipo_passagem VARCHAR(50),
 	valor VARCHAR(50)
+);
+
+create table van_dados(
+	van_id INT PRIMARY KEY,
+	placa VARCHAR(50),
+	destino VARCHAR(50),
+	hora_saida VARCHAR(50),
+	nome_motorista VARCHAR(50),
+    FOREIGN KEY(van_id) REFERENCES VAN(id_van)
 );
 
 create table fatura(
@@ -30,7 +40,8 @@ create table fatura(
 );
 
 create table usuarios(
-	nome VARCHAR(50),
+	id INT,
+    nome VARCHAR(50),
 	usuario VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50)
@@ -50,9 +61,10 @@ insert into van (cadeira,cpf_id,estado,tipo_passagem,valor) values(9, " ", "free
 insert into van (cadeira,cpf_id,estado,tipo_passagem,valor) values(10, "", "free","","");
 
 SELECT * FROM cliente;
-SELECT * FROM van;
+SELECT * FROM van_dados;
 DELETE FROM cliente WHERE cpf = '222.222.222-22';
 DELETE FROM van WHERE cadeira = '1';
+DROP TABLE van_dados;
 /* NAO APAGAR,,....
 >>>>>>> origin/master
 

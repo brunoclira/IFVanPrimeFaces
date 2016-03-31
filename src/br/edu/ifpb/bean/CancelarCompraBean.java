@@ -69,6 +69,8 @@ public void cancelar(){
 
 	ClientResponse response = webResource.type("application/json").post(ClientResponse.class, input);
 	
+	JSFUtil.messagemSucesso(van.getCpf() + " cancelado com Sucesso");
+	
 }
 
 

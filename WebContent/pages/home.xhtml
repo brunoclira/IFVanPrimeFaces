@@ -7,34 +7,27 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/templates/modeloSistema.xhtml">
 
+	<script src="WebContent/resources/css/teste.css"></script>
+	
 	<ui:define name="menu">
 		<ui:include src="/includes/menuPrincipal.xhtml"></ui:include>
 	</ui:define>
 
 	<ui:define name="conteudo">
-		<h:form>
 
-			<div class="container">
-				<div class="row">
-
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<a href="programaInstitucional.jsf">
-							<div class="tile">
-								<h:graphicImage
-									value="/resources/imagens/transport.png"
-									alt="Programa Institucional" />
-								<h3 class="tile-title">Home</h3>
-							</div>
-						</a>
-					</div>
-
-				</div>
+			<div class="row">
+			  <div class="col-xs-6 col-md-3">
+			    <a href="#" class="thumbnail">
+			      <img src="WebContent/resources/imagens/transport.png" alt="Home" style="
+			      																	height: 180px; 
+			      																	width: 30%; 
+			      																	display: block;
+			      																	margin-right: auto;
+    																				margin-left: auto;"></img>
+			    </a>
+			  </div>
 			</div>
-
-		</h:form>
+			
 	</ui:define>
-
-	 <script src="../resources/js/jquery.min.js"></script> 
-	<script src="../resources/css/teste.css"></script>
 	
 </ui:composition>

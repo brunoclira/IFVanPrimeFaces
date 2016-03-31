@@ -1,10 +1,12 @@
 package br.edu.ifpb.bean;
 
 import javax.annotation.PostConstruct;
-
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import org.primefaces.context.RequestContext;
+import org.primefaces.event.RowEditEvent;
 
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
